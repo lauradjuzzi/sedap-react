@@ -11,10 +11,18 @@ const NotFound = React.lazy(() => import("./pages/auth/NotFound"));
 // const Error403 = React.lazy(() => import("./pages/Error403"));
 const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
 const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"));
+const GuestLayout = React.lazy(() => import("./layouts/GuestLayout"));
 const Login = React.lazy(() => import("./pages/auth/Login"));
 const Register = React.lazy(() => import("./pages/auth/Register"));
 const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
 const Loading = React.lazy(() => import("./components/Loading"));
+const About = React.lazy(() => import("./components/Guest/About"));
+const Footer = React.lazy(() => import("./components/Guest/Footer"));
+const Hero = React.lazy(() => import("./components/Guest/Hero"));
+const Navbar = React.lazy(() => import("./components/Guest/Navbar"));
+const Testimonials = React.lazy(() => import("./components/Guest/Testimonials"));
+const TopProduct = React.lazy(() => import("./components/Guest/TopProduct"));
+const MemberCheck = React.lazy(() => import("./components/Guest/MemberCheck"));
 
 function App() {
   return (
@@ -37,6 +45,15 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/forgot" element={<Forgot />} />
         </Route>
+
+        <Route path="/guest" element={<GuestLayout />} />
+        <Route path="/navbar" element={<Navbar />} />
+        <Route path="/hero" element={<Hero />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/topProduct" element={<TopProduct />} />
+        <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="/footer" element={<Footer />} />
+        <Route path="/membercheck" element={<MemberCheck />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

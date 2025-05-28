@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Salad Sayur Segar",
+    "price": 30000,
+    "image": "https://jejakpersepsi.com/wp-content/uploads/2024/12/Salad-Sayur-Mexican-Chicken-Taco.jpg"
+  },
+  {
+    "name": "Smoothie Buah Berry",
+    "price": 25000,
+    "image": "https://www.cubesnjuliennes.com/wp-content/uploads/2022/02/Mixed-Berry-Smoothie-Recipe.jpg"
+  },
+  {
+    "name": "Ayam Panggang Lemon",
+    "price": 35000,
+    "image": "https://portal.riau24.com/news/20220205/riau24_1644069551.jpeg"
+  },
+  {
+    "name": "Nasi Merah dan Tahu Tempe",
+    "price": 28000,
+    "image": "https://img-global.cpcdn.com/recipes/1691f57409500c0c/400x400cq70/photo.jpg"
+  },
+  {
+    "name": "Jus Detox Hijau",
+    "price": 20000,
+    "image": "https://akcdn.detik.net.id/visual/2024/01/22/ilustrasi-jus-sayuran_43.jpeg?w=720&q=90"
+  },
+  {
+    "name": "Salad Buah",
+    "price": 20000,
+    "image": "https://asset.kompas.com/crops/-r0Vk3R_CwxJveb1vZCd4HOv33I=/0x418:4000x3084/1200x800/data/photo/2022/05/08/6277687255901.jpg"
+  },
+  {
+    "name": "sushi",
+    "price": 30000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEq1ayHH5baQPUozZGTwWdtiYic8jSyVXXOg&s"
+  },
+  {
+    "name": "dimsum",
+    "price": 30000,
+    "image": "https://imgx.parapuan.co/crop/0x0:0x0/x/photo/2022/05/21/istock-626007330jpg-20220521084248.jpg"
+  }
+]
