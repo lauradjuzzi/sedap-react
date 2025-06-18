@@ -4,7 +4,8 @@ import AlertBox from '../components/AlertBox'
 import GenericTable from '../components/GenericTable'
 import EmptyState from '../components/EmptyState'
 import LoadingSpinner from '../components/LoadingSpinner'
-import { AiFillDelete } from "react-icons/ai"
+import { AiFillEdit, AiFillDelete } from "react-icons/ai"
+
 
 export default function Notes() {
     const [loading, setLoading] = useState(false)
@@ -14,6 +15,8 @@ export default function Notes() {
         title: "", content: ""
     })
     const [notes, setNotes] = useState([])
+    const [editId, setEditId] = useState(null)
+
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -43,20 +46,26 @@ export default function Notes() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setLoading(true)
+        setError("")
+        setSuccess("")
 
         try {
-            setLoading(true)
-            setError("")
-            setSuccess("")
+            if (editId) {
+                // Mode edit
+                await notesAPI.updateNote(editId, dataForm)
+                setSuccess("Catatan berhasil diperbarui!")
+            } else {
+                // Mode tambah
+                await notesAPI.createNote(dataForm)
+                setSuccess("Catatan berhasil ditambahkan!")
+            }
 
-            await notesAPI.createNote(dataForm)
-
-            setSuccess("Catatan berhasil ditambahkan!")
             setDataForm({ title: "", content: "" })
+            setEditId(null)
+            loadNotes()
 
             setTimeout(() => setSuccess(""), 3000)
-
-            loadNotes()
         } catch (err) {
             setError(`Terjadi kesalahan: ${err.message}`)
         } finally {
@@ -64,7 +73,8 @@ export default function Notes() {
         }
     }
 
-     // Handle untuk aksi hapus data
+
+    // Handle untuk aksi hapus data
     const handleDelete = async (id) => {
         const konfirmasi = confirm("Yakin ingin menghapus catatan ini?")
         if (!konfirmasi) return
@@ -83,6 +93,13 @@ export default function Notes() {
         } finally {
             setLoading(false)
         }
+    }
+
+    // Handle untuk aksi edit data
+    const handleEdit = (note) => {
+        setDataForm({ title: note.title, content: note.content })
+        setEditId(note.id)
+        window.scrollTo({ top: 0, behavior: "smooth" }) // scroll ke form
     }
 
     return (
@@ -136,7 +153,8 @@ export default function Notes() {
                         focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed
                         transition-all duration-200 shadow-lg"
                     >
-                        {loading ? "Mohon Tunggu..." : "Tambah Data"}
+                        {loading ? "Mohon Tunggu..." : "Tambah Data"
+                            ? "Simpan Perubahan" : "Tambah Data"}
                     </button>
                 </form>
             </div>
@@ -180,6 +198,12 @@ export default function Notes() {
                                 </td>
                                 <td className="px-6 py-4 max-w-xs">
                                     <div className="truncate text-gray-600">
+                                        <button
+                                            onClick={() => handleEdit(note)}
+                                            disabled={loading}
+                                        >
+                                            <AiFillEdit className="text-blue-500 text-2xl hover:text-blue-700 transition-colors" />
+                                        </button>
                                         <button
                                             onClick={() => handleDelete(note.id)}
                                             disabled={loading}
