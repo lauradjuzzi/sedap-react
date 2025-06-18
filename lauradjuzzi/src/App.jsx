@@ -23,6 +23,7 @@ const Navbar = React.lazy(() => import("./components/Guest/Navbar"));
 const Testimonials = React.lazy(() => import("./components/Guest/Testimonials"));
 const TopProduct = React.lazy(() => import("./components/Guest/TopProduct"));
 const MemberCheck = React.lazy(() => import("./components/Guest/MemberCheck"));
+const Notes = React.lazy(() => import("./pages/Notes"));
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/orders" element={<Orders />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/notes" element={<Notes />} />
           {/* <Route path="/error400" element={<Error400 />} />
           <Route path="/error401" element={<Error401 />} />
           <Route path="/error403" element={<Error403 />} /> */}
@@ -54,6 +56,7 @@ function App() {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/footer" element={<Footer />} />
         <Route path="/membercheck" element={<MemberCheck />} />
+        
 
         <Route path="*" element={<NotFound />} />
       </Routes>

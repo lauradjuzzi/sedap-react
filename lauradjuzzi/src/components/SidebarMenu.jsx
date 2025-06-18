@@ -1,3 +1,5 @@
+import { CgNotes } from "react-icons/cg"; 
+import { BsFillPeopleFill } from "react-icons/bs"; 
 import { BiError } from "react-icons/bi"; 
 import { AiFillHome, AiOutlineUnorderedList, AiOutlineUser } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
@@ -28,7 +30,7 @@ export default function SidebarMenu() {
 
       <li>
         <NavLink id="menu-3" to="/customers" className={menuClass}>
-        <AiOutlineUser className="mr-4 text-xl"/>
+        <BsFillPeopleFill className="mr-4 text-xl"/>
           Customers
         </NavLink>
       </li>
@@ -37,6 +39,13 @@ export default function SidebarMenu() {
         <NavLink id="menu-4" to="/users" className={menuClass}>
         <AiOutlineUser className="mr-4 text-xl"/>
           User
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink id="menu-5" to="/notes" className={menuClass}>
+        <CgNotes className="mr-4 text-xl"/>
+          Notes
         </NavLink>
       </li>
 
